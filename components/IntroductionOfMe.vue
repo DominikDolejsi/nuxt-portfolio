@@ -2,7 +2,7 @@
 
 <template>
   <section>
-    <h2>Introduction</h2>
+    <h2 class="sectionHeading">Introduction</h2>
     <div class="introContainer">
       <div class="imgContainer">
         <img class="profilePhoto" src="~/assets/img/MyPhoto.jpg" alt="" />

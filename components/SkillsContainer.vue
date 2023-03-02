@@ -1,10 +1,12 @@
 <script lang="ts" setup>
-
+const props = defineProps<{ title: string }>();
 </script>
 
 <template>
-  <div>
-    <h3></h3>
-    <SkillIcon />
+  <div class="skillBox">
+    <h3 class="skillBoxHeading">{{ props.title }}</h3>
+    <div class="skillContainer">
+      <slot>No skills</slot>
+    </div>
   </div>
 </template>

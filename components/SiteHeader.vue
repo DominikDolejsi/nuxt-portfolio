@@ -9,7 +9,7 @@
       <nav>
         <ul class="list">
           <li><NuxtLink to="/">About</NuxtLink></li>
-          <li><NuxtLink to="/experience">Jobs a education</NuxtLink></li>
+          <li><NuxtLink to="/experience">Experience</NuxtLink></li>
           <li><NuxtLink to="/projects">My projects</NuxtLink></li>
         </ul>
       </nav>

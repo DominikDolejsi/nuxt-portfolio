@@ -7,8 +7,8 @@ export default {
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="1em"
-    height="1em"
+    width="3em"
+    height="3em"
     viewBox="0 0 256 256"
   >
     <path fill="#F7DF1E" d="M0 0h256v256H0V0Z"></path>

@@ -2,7 +2,7 @@
 
 <template>
   <main>
-    <h1>About</h1>
+    <h1 class="pageHeading">About</h1>
     <IntroductionOfMe />
     <MySkills />
   </main>

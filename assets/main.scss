@@ -3,7 +3,8 @@
   --clr-primary: #009688;
   --clr-secondary: #607D8B;
   --clr-accent: #4CAF50;
-  --clr-neutral: #FFFFFF;
+  --clr-neutral: #CFD8DC;
+  --clr-white: #FFFFFF;
 
 
   --ff-primary: 'Cormorant Garamond', serif;
@@ -92,12 +93,33 @@ select {
   }
 }
 
+// Utility Styling
+
+.pageHeading {
+  text-align: center;
+  font-size: var(--fs-700);
+}
+
+.sectionHeading {
+  text-align: center;
+  font-size: var(--fs-500);
+  text-decoration: underline;
+}
+
+.skillBoxHeading {
+  text-align: center;
+  font-size: var(--fs-500);
+  font-weight: var(--fw-medium);
+  margin-block: 1rem
+}
+
+
 // General Styling
 
 body {
   font-size: var(--fs-400);
   font-family: var(--ff-body);
-  background-color: var(--clr-neutral);
+  background-color: var(--clr-white);
 }
 
 .headerContainer {
@@ -145,7 +167,6 @@ main {
   gap: 1rem;
 }
 
-
 #summary {
   font-size: var(--fs-700);
   font-weight: 700;
@@ -158,4 +179,27 @@ main {
   font-weight: 500;
   margin-block: auto;
   text-align: center;
+}
+
+.techContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.skillContainer {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background-color: #CFD8DC;
+  border-radius: 5%;
+  box-shadow: 0 0 6px 2px hsla(0, 0%, 0%, 0.4);
+}
+
+.skillBox {
+  padding: 1rem;
 }
