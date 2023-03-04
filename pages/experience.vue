@@ -1,5 +1,10 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div></div>
+  <main>
+    <h1>Experience</h1>
+    <div></div>
+    <JobExperience />
+    <Education />
+  </main>
 </template>

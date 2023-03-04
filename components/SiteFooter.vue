@@ -2,22 +2,38 @@
 
 <template>
   <footer>
-    <div>
-      <h2>Important Links</h2>
-      <ul>
-        <li>
-          <a href=""><img src="" alt="" /></a>
-        </li>
-        <li>
-          <a href=""><img src="" alt="" /></a>
-        </li>
-        <li>
-          <a href=""><img src="" alt="" /></a>
-        </li>
-        <li>
-          <a href=""><img src="" alt="" /></a>
-        </li>
-      </ul>
+    <div class="footerContainer">
+      <section class="footerSection">
+        <h2>Contact me</h2>
+        <div class="footerBox">
+          <IconsEmail />
+          dominikdolejsi96@gmail.com
+        </div>
+        <div class="footerBox">
+          <IconsPhone />
+          +420 737 966 853
+        </div>
+      </section>
+      <section class="footerSection">
+        <h2>Important Links</h2>
+        <div class="footerBox">
+          <a
+            href="https://www.linkedin.com/in/dominikdolejsi/"
+            class="footerLink"
+            aria-label="LinkedIn account"
+          >
+            <IconsLinkedIn />
+          </a>
+          <a
+            href="https://github.com/DominikDolejsi"
+            class="footerLink"
+            aria-label="GitHub account"
+          >
+            <IconsGitHub style="width: 1em" />
+          </a>
+        </div>
+      </section>
     </div>
+    <p id="copyright">&copy;2023 | By Dominik Dolejší</p>
   </footer>
 </template>
