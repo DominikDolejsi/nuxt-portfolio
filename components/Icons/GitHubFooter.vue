@@ -8,8 +8,8 @@ export default {
   <div class="skillIcon" data-name="GitHub">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="3em"
-      height="3em"
+      width="1em"
+      height="1em"
       viewBox="0 0 1536 1504"
     >
       <path

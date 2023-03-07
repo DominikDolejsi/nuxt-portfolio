@@ -29,7 +29,7 @@
             class="footerLink"
             aria-label="GitHub account"
           >
-            <IconsGitHub style="width: 1em" />
+            <IconsGitHubFooter />
           </a>
         </div>
       </section>

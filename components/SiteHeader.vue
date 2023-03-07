@@ -4,8 +4,8 @@ const toggled = ref<boolean>(false);
 
 <template>
   <header class="headerContainer" :class="toggled ? 'headerActive' : ''">
-    <NuxtLink to="/">
-      <img src="" alt="My logo" />
+    <NuxtLink to="/" class="logo">
+      <img src="http://picsum.photos/32/32" alt="My logo" />
     </NuxtLink>
     <button
       type="button"
@@ -20,9 +20,11 @@ const toggled = ref<boolean>(false);
     <Transition name="scrollIn">
       <nav v-if="toggled">
         <ul class="list">
-          <li><NuxtLink to="/">About</NuxtLink></li>
-          <li><NuxtLink to="/experience">Experience</NuxtLink></li>
-          <li><NuxtLink to="/projects">Projects</NuxtLink></li>
+          <li><NuxtLink to="/" class="navLink">About</NuxtLink></li>
+          <li>
+            <NuxtLink to="/experience" class="navLink">Experience</NuxtLink>
+          </li>
+          <li><NuxtLink to="/projects" class="navLink">Projects</NuxtLink></li>
         </ul>
       </nav>
     </Transition>

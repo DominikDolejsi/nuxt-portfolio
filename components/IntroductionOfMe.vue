@@ -4,14 +4,14 @@
   <section>
     <h2 class="sectionHeading">Introduction</h2>
     <div class="introContainer">
-      <div class="imgContainer">
-        <img class="profilePhoto" src="~/assets/img/MyPhoto.jpg" alt="" />
-      </div>
       <p id="summary">
         Hi, I am Dominik. A fresh junior full-stack software developer from the
         Czech Republic searching for an opportunity to utilize and deepen my
         knowledge.
       </p>
+      <div class="imgContainer">
+        <img class="profilePhoto" src="~/assets/img/MyPhoto.jpg" alt="" />
+      </div>
       <p id="background">
         Before I became a developer, I studied <span>paleontology</span>, and in
         my free time, I still try to keep up to date with current scientific

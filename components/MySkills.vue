@@ -3,29 +3,29 @@
 <template>
   <section>
     <h2 class="sectionHeading">My Skills</h2>
-    <div class="techContainer">
-      <SkillsContainer title="Languages">
+    <div class="skillsContainer">
+      <SkillsBox title="Languages">
         <IconsJavaScript />
         <IconsTypeScript />
         <IconsHTML />
         <IconsCSS />
         <IconsJava />
-      </SkillsContainer>
-      <SkillsContainer title="Frontend">
+      </SkillsBox>
+      <SkillsBox title="Frontend">
         <IconsVue />
         <IconsReact />
         <IconsNuxt />
-      </SkillsContainer>
-      <SkillsContainer title="Backend">
+      </SkillsBox>
+      <SkillsBox title="Backend">
         <IconsNode />
         <IconsSpring />
-      </SkillsContainer>
-      <SkillsContainer title="Tools">
+      </SkillsBox>
+      <SkillsBox title="Tools">
         <IconsVScode />
         <IconsCommandLine />
         <IconsGit />
         <IconsGitHub />
-      </SkillsContainer>
+      </SkillsBox>
     </div>
   </section>
 </template>
