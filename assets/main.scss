@@ -258,6 +258,18 @@ main {
     padding: .5rem;
     margin-block: .5rem;
   }
+  
+  .changingWord {
+    display: inline-block;
+    font-family: 'Lucida Grande', monospace;
+    font-weight: var(--fw-bold);
+    color: #388E3C;
+    cursor: pointer;
+  }
+
+  .deactivated {
+    pointer-events: none;
+  }
 
   .profilePhoto {
     border: 2px solid var(--clr-secondary);
@@ -351,6 +363,10 @@ footer {
         grid-template-columns: 1rem 1fr;
         align-items: center;
         gap: .5rem;
+      }
+
+      .linksBox {
+        gap: 1.5rem;
       }
     }
   }

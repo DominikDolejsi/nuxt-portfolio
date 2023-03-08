@@ -16,7 +16,7 @@
       </section>
       <section class="footerSection">
         <h2>Important Links</h2>
-        <div class="footerBox">
+        <div class="footerBox linksBox">
           <a
             href="https://www.linkedin.com/in/dominikdolejsi/"
             class="footerLink"
