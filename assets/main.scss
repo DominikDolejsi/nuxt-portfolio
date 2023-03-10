@@ -95,22 +95,14 @@ select {
   }
 }
 
-// General Styles
-
-
-
-
-
 // Macro Styling
-
-#__nuxt {
-  height: 100%;
-}
 
 .container {
   display: grid;
   grid-template-columns: 1fr;
-  min-height: 100%;
+  grid-template-rows: 1fr auto;
+  min-height: 100vh;
+  min-height: 100dvh;
   padding-top: 3.5rem;
 }
 
@@ -327,6 +319,96 @@ main {
       }
     }
   }
+
+
+  .experienceContainer {
+
+    display: grid;
+    gap: .5rem;
+    
+    .experienceBox {
+      font-size: var(--fs-small);
+  
+  
+      .experienceHeader {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+  
+        padding: .5rem;
+        padding-bottom: 0;
+        border-top: .4rem solid var(--clr-secondary);
+        border-bottom: .4rem solid var(--clr-secondary);
+        border-radius: .5rem;
+        background-color: var(--clr-primary);
+  
+        .date {
+          grid-column: 1 / 2;
+          grid-row: 1 / 2;
+          justify-self: left;
+          font-size: var(--fs-tiny);
+        }
+  
+        .type {
+          grid-column: 2 / 3;
+          grid-row: 1 / 2;
+          justify-self: right;
+          font-size: var(--fs-tiny);
+        }
+        
+        .name {
+          grid-column: span 2;
+          grid-row: 2 / 3;
+          justify-self: center;
+          font-weight: var(--fw-medium);
+        }
+  
+        .arrowButton {
+          grid-column: span 2;
+          grid-row: 3 / 4;
+          justify-self: center;
+  
+          display: flex;
+          flex-direction: row;
+          height: .7rem;
+          border: transparent;     
+  
+          .arrowLeft {
+            width: 1rem;
+            height: .2rem;
+            background-color: black;
+            transform: rotate(20deg) translate(.125rem, .1rem);
+          }
+  
+          .arrowRight {
+            width: 1rem;
+            height: .2rem;
+            background-color: black;
+            transform: rotate(-20deg) translate(-.125rem, .1rem);
+          }
+  
+          .closeLeft {
+            transform: rotate(-20deg) translate(.05rem, .1rem);
+          }
+  
+          .closeRight {
+            transform: rotate(20deg) translate(-.05rem, .1rem);
+          }
+        }
+      }
+  
+      .experienceBody {
+        background-color: var(--clr-primary);
+        margin: 0 .5rem;
+        padding: 1rem;
+        border-bottom: .4rem solid var(--clr-secondary);
+        border-radius: 0 0 .5rem .5rem;
+  
+      }
+  
+    }
+  }
+
+
 }
 
 footer {

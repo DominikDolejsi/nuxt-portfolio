@@ -11,10 +11,10 @@ type Experience = {
 const experiences = ref<Experience[]>([
   {
     id: 1,
-    name: 'My first developer job',
-    date: '',
-    type: '',
-    body: 'This part is empty, you can help by expanding it.',
+    name: 'GreenFox Academy bootcamp',
+    date: '2022-2023',
+    type: 'Full stack',
+    body: 'These five months of intensive learning gave me good understanding of        JavaScript, HTML, and CSS. The whole course culminated with a team project where I learned about React and Java Spring, in addition to agile development, teamwork, and CI/DC.',
     show: false,
   },
 ]);
@@ -22,7 +22,7 @@ const experiences = ref<Experience[]>([
 
 <template>
   <section>
-    <h2>Job experience</h2>
+    <h2>Education</h2>
     <div class="experienceContainer">
       <ExperienceBox :experiences="experiences" />
     </div>

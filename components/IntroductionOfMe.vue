@@ -2,18 +2,20 @@
 // const letters = 'abcdefghijklmnopqrstuvwxyz';
 const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-const wordShowcase = (e: Event) => {
-  if (e.target === null) return;
-  if (!e.target.classList.contains('changingWord')) return;
-  e.target.classList.add('deactivated');
+const wordShowcase = (event: Event) => {
+  const target = event.target as HTMLInputElement;
+  if (target === null) return;
+  if (!target.classList.contains('changingWord')) return;
+  target.classList.add('deactivated');
   let iterations = 0;
   let phase = 0;
   const delay = 20;
-  const { words } = e.target.dataset;
-  const wordArray = words.split('_');
+  const { words } = target.dataset;
+  if (!words) return;
+  const wordArray: string[] = words.split('_');
 
   const interval = setInterval(() => {
-    e.target.innerText = e.target.innerText
+    target.innerText = target.innerText
       .split('')
       .map((letter, index) => {
         if (phase === 0) {
@@ -119,11 +121,12 @@ const wordShowcase = (e: Event) => {
           }
           return letters[Math.floor(Math.random() * 26)];
         }
+        return true;
       })
       .join('');
 
     if (phase === 8) {
-      e.target.classList.remove('deactivated');
+      target.classList.remove('deactivated');
       clearInterval(interval);
     }
     iterations += 1 / 3;

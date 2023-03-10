@@ -1,20 +1,46 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+type Experience = {
+  id: number;
+  name: string;
+  date: string;
+  type: string;
+  body: string;
+  show: boolean;
+};
+
+interface Props {
+  experiences: Experience[];
+}
+const props = defineProps<Props>();
+</script>
 
 <template>
-  <div>
-    <div>
-      <p>2022 - 2023</p>
-      <p>GreenFox Academy</p>
-      <p>Full-stack webdevelopment bootcamp</p>
-      <button type="button">Details</button>
+  <div
+    v-for="experience in props.experiences"
+    :key="experience.id"
+    class="experienceBox"
+  >
+    <div class="experienceHeader">
+      <p class="date">{{ experience.date }}</p>
+      <p class="type">{{ experience.type }}</p>
+      <p class="name">{{ experience.name }}</p>
+      <button
+        type="button"
+        class="arrowButton"
+        @click="(event) => (experience.show = !experience.show)"
+      >
+        <div
+          class="arrowLeft"
+          :class="experience.show ? 'closeLeft' : ''"
+        ></div>
+        <div
+          class="arrowRight"
+          :class="experience.show ? 'closeRight' : ''"
+        ></div>
+      </button>
     </div>
-    <div>
-      <p>
-        These five months of intensive learning gave me good understanding of
-        JavaScript, HTML, and CSS. The whole course culminated with a team
-        project where I learned about React and Java Spring, in addition to
-        agile development, teamwork, and CI/DC.
-      </p>
+    <div v-if="experience.show" class="experienceBody">
+      <p>{{ experience.body }}</p>
     </div>
   </div>
 </template>

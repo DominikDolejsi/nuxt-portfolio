@@ -20,11 +20,30 @@ const toggled = ref<boolean>(false);
     <Transition name="scrollIn">
       <nav v-if="toggled">
         <ul class="list">
-          <li><NuxtLink to="/" class="navLink">About</NuxtLink></li>
           <li>
-            <NuxtLink to="/experience" class="navLink">Experience</NuxtLink>
+            <NuxtLink
+              to="/"
+              class="navLink"
+              @click="($event) => (toggled = !toggled)"
+              >About</NuxtLink
+            >
           </li>
-          <li><NuxtLink to="/projects" class="navLink">Projects</NuxtLink></li>
+          <li>
+            <NuxtLink
+              to="/experience"
+              class="navLink"
+              @click="($event) => (toggled = !toggled)"
+              >Experience</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink
+              to="/projects"
+              class="navLink"
+              @click="($event) => (toggled = !toggled)"
+              >Projects</NuxtLink
+            >
+          </li>
         </ul>
       </nav>
     </Transition>

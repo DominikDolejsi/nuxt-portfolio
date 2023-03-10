@@ -26,5 +26,5 @@ export default defineNuxtConfig({
       ],
     },
   },
-  ssr: true,
+  modules: ['@vueuse/nuxt'],
 });
