@@ -7,131 +7,207 @@ const wordShowcase = (event: Event) => {
   if (target === null) return;
   if (!target.classList.contains('changingWord')) return;
   target.classList.add('deactivated');
-  let iterations = 0;
-  let phase = 0;
+  let memory = {
+    phase: 0,
+    iterations: 0,
+  };
   const delay = 20;
+  const iterationSpeed = 1 / 3;
   const { words } = target.dataset;
   if (!words) return;
   const wordArray: string[] = words.split('_');
+  if (wordArray.length < 2) return;
+
+  const showWord = (newWord: string, currentWord: string[]) => {
+    const changedWord = currentWord.map((letter, index) => {
+      if (index < memory.iterations && index < newWord.length) {
+        return newWord[index];
+      }
+      return letters[Math.floor(Math.random() * 26)];
+    });
+    return changedWord;
+  };
+  const deleteWord = (newWord: string, currentWord: string[]) => {
+    const changedWord = currentWord.map((letter, index) => {
+      if (index < newWord.length - memory.iterations) {
+        return newWord[index];
+      }
+      return letters[Math.floor(Math.random() * 26)];
+    });
+    return changedWord;
+  };
+
+  const progressPhase = (
+    currentIterations: number,
+    currentWord: string,
+    timeDelay?: number
+  ) => {
+    if (
+      timeDelay === undefined
+        ? currentIterations >= currentWord.length
+        : currentIterations >= currentWord.length + timeDelay
+    ) {
+      return { iterations: 0, phase: memory.phase + 1 };
+    }
+    return { iterations: memory.iterations, phase: memory.phase };
+  };
+  let targetArray = target.innerText.split('');
 
   const interval = setInterval(() => {
-    target.innerText = target.innerText
-      .split('')
-      .map((letter, index) => {
-        if (phase === 0) {
-          if (
-            index === wordArray[0].length - 1 &&
-            iterations >= wordArray[0].length
-          ) {
-            phase += 1;
-            iterations = 0;
-          }
-          if (index < wordArray[0].length - iterations - 1) {
-            return wordArray[0][index];
-          }
-          return letters[Math.floor(Math.random() * 26)];
-        }
-        if (phase === 1) {
-          if (
-            index === wordArray[0].length - 1 &&
-            iterations >= wordArray[1].length + delay
-          ) {
-            phase += 1;
-            iterations = 0;
-          }
-          if (index < iterations && index < wordArray[1].length) {
-            return wordArray[1][index];
-          }
-          return letters[Math.floor(Math.random() * 26)];
-        }
-        if (phase === 2) {
-          if (
-            index === wordArray[0].length - 1 &&
-            iterations >= wordArray[1].length
-          ) {
-            phase += 1;
-            iterations = 0;
-          }
-          if (index < wordArray[1].length - iterations) {
-            return wordArray[1][index];
-          }
-          return letters[Math.floor(Math.random() * 26)];
-        }
-        if (phase === 3) {
-          if (
-            index === wordArray[0].length - 1 &&
-            iterations >= wordArray[2].length + delay
-          ) {
-            phase += 1;
-            iterations = 0;
-          }
-          if (index < iterations && index < wordArray[2].length) {
-            return wordArray[2][index];
-          }
-          return letters[Math.floor(Math.random() * 26)];
-        }
-        if (phase === 4) {
-          if (
-            index === wordArray[0].length - 1 &&
-            iterations >= wordArray[2].length
-          ) {
-            phase += 1;
-            iterations = 0;
-          }
-          if (index < wordArray[2].length - iterations) {
-            return wordArray[2][index];
-          }
-          return letters[Math.floor(Math.random() * 26)];
-        }
-        if (phase === 5) {
-          if (
-            index === wordArray[0].length - 1 &&
-            iterations >= wordArray[3].length + delay
-          ) {
-            phase += 1;
-            iterations = 0;
-          }
-          if (index < iterations && index < wordArray[3].length) {
-            return wordArray[3][index];
-          }
-          return letters[Math.floor(Math.random() * 26)];
-        }
-        if (phase === 6) {
-          if (
-            index === wordArray[0].length - 1 &&
-            iterations >= wordArray[3].length
-          ) {
-            phase += 1;
-            iterations = 0;
-          }
-          if (index < wordArray[3].length - iterations) {
-            return wordArray[3][index];
-          }
-          return letters[Math.floor(Math.random() * 26)];
-        }
-        if (phase === 7) {
-          if (
-            index === wordArray[0].length - 1 &&
-            iterations >= wordArray[0].length + 1
-          ) {
-            phase += 1;
-          }
-          if (index < iterations) {
-            return wordArray[0][index];
-          }
-          return letters[Math.floor(Math.random() * 26)];
-        }
-        return true;
-      })
-      .join('');
+    if (memory.phase === 0) {
+      targetArray = deleteWord(wordArray[0], targetArray);
+      memory = progressPhase(memory.iterations, wordArray[0]);
+    } else if (memory.phase === wordArray.length * 2 - 1) {
+      targetArray = showWord(wordArray[0], targetArray);
+      memory = progressPhase(memory.iterations, wordArray[0]);
+    } else if (memory.phase % 2) {
+      targetArray = showWord(
+        wordArray[memory.phase - Math.floor(memory.phase / 2)],
+        targetArray
+      );
+      memory = progressPhase(
+        memory.iterations,
+        wordArray[memory.phase - Math.floor(memory.phase / 2)],
+        delay
+      );
+    } else {
+      targetArray = deleteWord(
+        wordArray[memory.phase - Math.floor(memory.phase / 2)],
+        targetArray
+      );
+      memory = progressPhase(
+        memory.iterations,
+        wordArray[memory.phase - Math.floor(memory.phase / 2)]
+      );
+    }
 
-    if (phase === 8) {
+    target.innerText = targetArray.join('');
+
+    if (memory.phase === wordArray.length * 2) {
       target.classList.remove('deactivated');
       clearInterval(interval);
     }
-    iterations += 1 / 3;
-  }, 30);
+    memory.iterations += iterationSpeed;
+  }, 40);
 };
+//   const interval = setInterval(() => {
+//     target.innerText = target.innerText
+//       .split('')
+//       .map((letter, index) => {
+//         if (phase === 0) {
+//           if (
+//             index === wordArray[0].length - 1 &&
+//             iterations >= wordArray[0].length
+//           ) {
+//             phase += 1;
+//             iterations = 0;
+//           }
+//           if (index < wordArray[0].length - iterations - 1) {
+//             return wordArray[0][index];
+//           }
+//           return letters[Math.floor(Math.random() * 26)];
+//         }
+//         if (phase === 1) {
+//           if (
+//             index === wordArray[0].length - 1 &&
+//             iterations >= wordArray[1].length + delay
+//           ) {
+//             phase += 1;
+//             iterations = 0;
+//           }
+//           if (index < iterations && index < wordArray[1].length) {
+//             return wordArray[1][index];
+//           }
+//           return letters[Math.floor(Math.random() * 26)];
+//         }
+//         if (phase === 2) {
+//           if (
+//             index === wordArray[0].length - 1 &&
+//             iterations >= wordArray[1].length
+//           ) {
+//             phase += 1;
+//             iterations = 0;
+//           }
+//           if (index < wordArray[1].length - iterations) {
+//             return wordArray[1][index];
+//           }
+//           return letters[Math.floor(Math.random() * 26)];
+//         }
+//         if (phase === 3) {
+//           if (
+//             index === wordArray[0].length - 1 &&
+//             iterations >= wordArray[2].length + delay
+//           ) {
+//             phase += 1;
+//             iterations = 0;
+//           }
+//           if (index < iterations && index < wordArray[2].length) {
+//             return wordArray[2][index];
+//           }
+//           return letters[Math.floor(Math.random() * 26)];
+//         }
+//         if (phase === 4) {
+//           if (
+//             index === wordArray[0].length - 1 &&
+//             iterations >= wordArray[2].length
+//           ) {
+//             phase += 1;
+//             iterations = 0;
+//           }
+//           if (index < wordArray[2].length - iterations) {
+//             return wordArray[2][index];
+//           }
+//           return letters[Math.floor(Math.random() * 26)];
+//         }
+//         if (phase === 5) {
+//           if (
+//             index === wordArray[0].length - 1 &&
+//             iterations >= wordArray[3].length + delay
+//           ) {
+//             phase += 1;
+//             iterations = 0;
+//           }
+//           if (index < iterations && index < wordArray[3].length) {
+//             return wordArray[3][index];
+//           }
+//           return letters[Math.floor(Math.random() * 26)];
+//         }
+//         if (phase === 6) {
+//           if (
+//             index === wordArray[0].length - 1 &&
+//             iterations >= wordArray[3].length
+//           ) {
+//             phase += 1;
+//             iterations = 0;
+//           }
+//           if (index < wordArray[3].length - iterations) {
+//             return wordArray[3][index];
+//           }
+//           return letters[Math.floor(Math.random() * 26)];
+//         }
+//         if (phase === 7) {
+//           if (
+//             index === wordArray[0].length - 1 &&
+//             iterations >= wordArray[0].length + 1
+//           ) {
+//             phase += 1;
+//           }
+//           if (index < iterations) {
+//             return wordArray[0][index];
+//           }
+//           return letters[Math.floor(Math.random() * 26)];
+//         }
+//         return true;
+//       })
+//       .join('');
+
+//     if (phase === 8) {
+//       target.classList.remove('deactivated');
+//       clearInterval(interval);
+//     }
+//     iterations += 1 / 3;
+//   }, 30);
+// };
 </script>
 
 <template>

@@ -320,6 +320,9 @@ main {
     }
   }
 
+  #journeyLength {
+    font-style: italic;
+  }
 
   .experienceContainer {
 
@@ -408,7 +411,48 @@ main {
     }
   }
 
+  .projectsContainer {
+    display: grid;
+    gap: 1rem;
 
+    .projectBox {
+      background-color: var(--clr-primary);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-left: .4rem solid var(--clr-secondary);
+      border-right: .4rem solid var(--clr-secondary);
+      border-radius: .5rem;
+      padding: .5rem;
+
+      .projectName {
+        text-align: center;
+        margin-block: .5rem;
+        grid-column: span 2;
+      }
+
+      .projectImage {
+        grid-column: span 2;
+        place-self: center;
+        border-radius: .5rem;
+      }
+
+      .projectButton {
+        display: grid;
+        background-color: var(--clr-secondary);
+        place-items: center;
+        margin: .5rem;
+        border-radius: .5rem;
+        padding: .5rem;
+      }
+
+      .projectButton>* {
+        text-decoration: none;
+        font-size: var(--fs-small);
+        color: var(--clr-white);
+      }
+
+    }
+  }
 }
 
 footer {

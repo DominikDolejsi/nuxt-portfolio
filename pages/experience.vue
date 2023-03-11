@@ -18,7 +18,7 @@ const computeTimeElapsed = () => {
       }
       return `${elapsedYears} years and ${elapsedMonths} month`;
     }
-    if (elapsedMonths > 1) {
+    if (elapsedMonths > 1) { 
       return `${elapsedYears} year and ${elapsedMonths} months`;
     }
     return `${elapsedYears} year and ${elapsedMonths} month`;
@@ -39,7 +39,7 @@ const computeTimeElapsed = () => {
 <template>
   <main>
     <h1>Experience</h1>
-    <p>
+    <p id="journeyLength">
       It has been {{ computeTimeElapsed() }} since my programming journey began.
     </p>
     <JobExperience />
