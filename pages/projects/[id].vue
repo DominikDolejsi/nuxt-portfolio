@@ -26,6 +26,7 @@ const project = projects[pageId];
     <h1>{{ project.name }}</h1>
     <a :href="`${project.url}`">landing page</a>
     <div>
+      <p>Tech stack</p>
       <p>{{ project.tech }}</p>
       <p>{{ project.introduction }}</p>
       <img src="http://picsum.photos/300/200" alt="" />
