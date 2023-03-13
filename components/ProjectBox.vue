@@ -10,7 +10,7 @@ type Project = {
   name: string;
   url: string;
   images: ProjectImages;
-  tech: string[];
+  techStack: string[];
   introduction: string;
   result: string;
 };
@@ -25,18 +25,20 @@ const props = defineProps<Props>();
 <template>
   <div class="projectBox">
     <p class="projectName">{{ props.project.name }}</p>
-    <img
-      :src="`${props.project.images.thumbnail}`"
-      alt=""
-      class="projectImage"
-    />
-    <div class="projectButton">
-      <NuxtLink :to="`/projects/${props.project.id}`" class="projectPage"
-        >About</NuxtLink
-      >
-    </div>
-    <div class="projectButton">
-      <a :href="`${props.project.url}`" class="projectLink">Home page</a>
+    <div class="imageBox">
+      <img
+        :src="`${props.project.images.thumbnail}`"
+        alt=""
+        class="projectImage"
+      />
+      <div class="projectLink left">
+        <NuxtLink :to="`/projects/${props.project.id}`" class="projectPage"
+          >Learn more</NuxtLink
+        >
+      </div>
+      <div class="projectLink right">
+        <a :href="`${props.project.url}`" class="projectLink">Home page</a>
+      </div>
     </div>
   </div>
 </template>

@@ -40,7 +40,10 @@ const props = defineProps<Props>();
       </button>
     </div>
     <div v-if="experience.show" class="experienceBody">
-      <p>{{ experience.body }}</p>
+      <div class="textBox">
+        <div class="textLine"></div>
+        <p>{{ experience.body }}</p>
+      </div>
     </div>
   </div>
 </template>

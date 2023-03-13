@@ -12,7 +12,7 @@ type Project = {
   name: string;
   url: string;
   images: ProjectImages;
-  tech: string[];
+  techStack: string[];
   introduction: string;
   result: string;
 };
@@ -24,13 +24,23 @@ const project = projects[pageId];
 <template>
   <main>
     <h1>{{ project.name }}</h1>
-    <a :href="`${project.url}`">landing page</a>
-    <div>
-      <p>Tech stack</p>
-      <p>{{ project.tech }}</p>
-      <p>{{ project.introduction }}</p>
+    <a :href="`${project.url}`" class="pageLink">home page</a>
+    <div class="projectBody">
+      <p class="techTitle">Tech stack</p>
+      <div class="techContainer">
+        <div v-for="tech of project.techStack" :key="tech" class="techBox">
+          <p>{{ tech }}</p>
+        </div>
+      </div>
+      <div class="textBox">
+        <div class="textLine"></div>
+        <p>{{ project.introduction }}</p>
+      </div>
       <img src="http://picsum.photos/300/200" alt="" />
-      <p>{{ project.result }}</p>
+      <div class="textBox">
+        <div class="textLine"></div>
+        <p>{{ project.result }}</p>
+      </div>
       <img src="http://picsum.photos/300/200" alt="" />
     </div>
   </main>
