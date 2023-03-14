@@ -19,6 +19,7 @@
       <SkillsBox title="Backend">
         <IconsNode />
         <IconsSpring />
+        <IconsMySQL />
       </SkillsBox>
       <SkillsBox title="Tools">
         <IconsVScode />
