@@ -39,7 +39,7 @@ const computeTimeElapsed = () => {
 <template>
   <main>
     <h1>Experience</h1>
-    <div class="textBox">
+    <div class="textBox journey">
       <div class="textLine"></div>
       <div>
         <p>It has been</p>

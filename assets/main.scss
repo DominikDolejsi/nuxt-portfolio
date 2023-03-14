@@ -22,6 +22,10 @@
   --fs-medium: 1rem;
   --fs-big: 1.25rem;
   --fs-large: 2rem;
+
+  --margin-small: .5rem;
+  --margin-big: 1rem;
+
 }
 
 // https://piccalil.li/blog/a-modern-css-reset
@@ -138,7 +142,7 @@ header {
   margin: .5rem 1rem .5rem;
   padding: 0 1.5rem .25rem;
   background: var(--clr-gradient-top);
-  border-top: .25rem solid var(--clr-border);
+  border-top: .125rem solid var(--clr-border);
   border-radius: 1rem 1rem 2rem 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -150,7 +154,7 @@ header {
 
   .burgerButton {
     max-height: 2rem;
-    padding: .125rem 0 .125rem;
+    padding-top: .125rem;
     border: none;
     background: none;
     justify-self: end;
@@ -170,7 +174,7 @@ header {
   }
   .toggled {
     .bar1 {
-      transform: translate(0, .55rem) rotate(45deg)
+      transform: translate(0, .625rem) rotate(45deg)
     }
 
     .bar2 {
@@ -179,7 +183,7 @@ header {
     }
 
     .bar3 {
-      transform: translate(0, -.55rem) rotate(-45deg)
+      transform: translate(0, -.625rem) rotate(-45deg)
     }
   }
 
@@ -233,7 +237,7 @@ header {
 .headerActive {
   height: 9.5rem;
   grid-template-rows: auto 1fr;
-  border-bottom: .25rem solid var(--clr-border);
+  border-bottom: .125rem solid var(--clr-border);
 }
 
 main {
@@ -290,8 +294,7 @@ main {
     .skillBox {
       display: grid;
       grid-template-columns: 1fr;
-      justify-items: center stretch;
-      border-radius: .5rem;
+      grid-template-rows: auto 1fr;
   
       h3 {
         color: var(--clr-text-primary);
@@ -308,7 +311,7 @@ main {
       .iconContainer {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        justify-items: center;
+        place-items: center;
         margin: 1rem;
         gap: 1rem;
         
@@ -349,6 +352,7 @@ main {
 
   .experienceContainer {
     display: grid;
+    gap: .5rem;
     
     .experienceHeader {
       display: grid;
@@ -356,8 +360,8 @@ main {
 
 
       padding: .25rem .5rem .25rem;
-      border-top: .25rem solid var(--clr-border);
-      border-bottom: .25rem solid var(--clr-border);
+      border-top: .125rem solid var(--clr-border);
+      border-bottom: .125rem solid var(--clr-border);
       border-radius: 1rem 1rem 2rem 2rem;
       background: var(--clr-gradient-radial);
 
@@ -433,7 +437,7 @@ main {
 
   .projectsContainer {
     display: grid;
-    gap: 1rem;
+    gap: .5rem;
 
     .projectBox {
       background-image: attr('image');
@@ -449,7 +453,7 @@ main {
       .imageBox {
         display: grid;
         grid-template-areas: 'stack';
-        width: min(100%, 600px);
+        width: 100%;
         
         .projectImage {
           grid-area: stack;
@@ -459,19 +463,19 @@ main {
         
         .projectLink {
           grid-area: stack;
-          width: 7rem;
           background-color: var(--clr-secondary);
           border-radius: 2rem 2rem 1rem 1rem;
-          padding: .5rem .75rem;
+          padding: .25rem .5rem;
           display: grid;
+          place-items: center;
 
           a {
-            width: 100%;
             text-decoration: none;
             color: var(--clr-light);
-            padding: 0;
-            text-align: center;
+          }
 
+          a:hover {
+            color: var(--clr-dark);
           }
         }
         
@@ -583,4 +587,206 @@ footer {
       gap: 1.5rem;
     }
   }
+}
+
+
+@media screen and (min-width: 640px) {
+
+  main {
+    .introContainer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      place-items: center;
+
+      .textBox:nth-child(3) {
+        grid-column: span 2;
+      }
+    }
+
+    .skillsContainer {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .journey {
+      text-align: center;
+      grid-template-columns: 1fr;
+
+      .textLine {
+        display: none;
+      }
+
+    }
+    .experienceContainer {
+      .experienceHeader {
+        grid-template-columns: repeat(3, auto);
+
+        .type {
+          grid-column: 3 / 4;
+          grid-row: 1 / 2;
+        }
+
+        .date {
+          grid-column: 1 / 2;
+          grid-row: 1 / 2;
+        }
+
+        .name {
+          grid-column: 2 / 3;
+          grid-row: 1 / 2;
+        }
+
+        .arrowButton {
+          grid-column: span 3;
+          grid-row: 2 / 3;
+        }
+
+      }
+    }
+
+    .projectsContainer {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .projectBody {
+      img {
+        max-width: 60%;
+        place-self: center;
+      }
+    }
+
+  }
+
+  footer {
+
+    .footerSection {
+      grid-template-columns: 1fr 1fr;
+
+      h2 {
+        grid-column: span 2;
+      }
+
+      .linksBox {
+        grid-column: 2 / 3;
+        grid-row: 2 / span 2;
+      }
+    }
+  }
+  
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --fs-tiny: .5rem;
+    --fs-medium: .75rem;
+    --fs-big: 1rem;
+    --fs-large: 1.75rem;
+  }
+
+  .container {
+    padding-top: 2rem;
+  }
+
+  header {
+    height: 1.5rem;
+    margin: 0;
+    width: 100%;
+    border-radius: 0 0 2rem 2rem;
+    transition: none;
+
+    .logo {
+      width: .5rem;
+    }
+
+    nav {
+      grid-column: 2 / 3;
+      grid-row: 1 / end;
+      transition: none;
+      display: grid;
+      justify-self: right;
+
+      ul {
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: auto;
+        align-items: end;
+
+        .navLink {
+          font-size: var(--fs-medium);
+          border: none;
+        }
+
+        .navLink:hover {
+          color: var(--clr-text-primary);
+        }
+      }
+    }
+  }
+
+
+  main {
+    width: 64rem;
+    justify-self: center;
+
+    .introContainer {
+
+      .welcomeMessage {
+        grid-column: span 2;
+      }
+
+      .textBox:nth-child(2) {
+        grid-column: span 2;
+
+        .textLine {
+          display: none;
+        }
+      }
+    }
+
+    .skillsContainer {
+      grid-template-columns: repeat(3, 1fr);
+
+      .skillBox:nth-child(4) {
+        grid-column: 2 / 3;
+      }
+    }
+
+    .projectsContainer {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+  }
+
+  footer {
+    display: grid;
+
+    .footerSection {
+      width: 64rem;
+      justify-self: center;
+      grid-template-columns: repeat(2, 1fr);
+
+      h2 {
+        margin: 0;
+        place-self: start;
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+      }
+      svg {
+        width: .75rem;
+        height: .75rem;
+      }
+
+      .footerBox:nth-child(2) {
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+      }
+      .footerBox:nth-child(3) {
+        grid-row: 3 / 4;
+        grid-column: 1 / 2;
+      }
+      .footerBox:nth-child(4) {
+        grid-row: 2 / 4;
+        grid-column: 2 / 3;
+      }
+    }
+  }
+
 }

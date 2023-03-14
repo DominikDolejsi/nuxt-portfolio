@@ -21,9 +21,9 @@ const projects: Project[] = [
     name: 'Calculator',
     url: 'https://calculator-vite-vue.vercel.app/',
     images: {
-      thumbnail: 'http://picsum.photos/300/200',
-      first: 'http://picsum.photos/300/200',
-      second: 'http://picsum.photos/300/200',
+      thumbnail: '/img/calc_thumbnail.png',
+      first: '/img/calc_first.png',
+      second: '/img/calc_second.png',
     },
     techStack: ['Vue', 'Vite'],
     introduction:

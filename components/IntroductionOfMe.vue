@@ -7,16 +7,17 @@ const wordShowcase = (event: Event) => {
   if (target === null) return;
   if (!target.classList.contains('changingWord')) return;
   target.classList.add('deactivated');
-  let memory = {
-    phase: 0,
-    iterations: 0,
-  };
-  const delay = 5;
-  const iterationSpeed = 1 / 3;
   const { words } = target.dataset;
   if (!words) return;
   const wordArray: string[] = words.split('_');
   if (wordArray.length < 2) return;
+  let memory = {
+    phase: 0,
+    iterations: 0,
+  };
+
+  const delay = 10;
+  const iterationSpeed = 1 / 3;
 
   const showWord = (newWord: string, currentWord: string[]) => {
     const changedWord = currentWord.map((letter, index) => {
@@ -88,7 +89,7 @@ const wordShowcase = (event: Event) => {
       clearInterval(interval);
     }
     memory.iterations += iterationSpeed;
-  }, 40);
+  }, 30);
 };
 </script>
 
@@ -96,13 +97,15 @@ const wordShowcase = (event: Event) => {
   <section>
     <h2 class="sectionHeading">Introduction</h2>
     <div class="introContainer">
-      <p id="welcome">Hi, I am Dominik</p>
-      <p id="subtitle">Full stack software developer</p>
+      <div class="welcomeMessage">
+        <p id="welcome">Hi, I am Dominik</p>
+        <p id="subtitle">Full stack software developer</p>
+      </div>
       <div class="textBox">
         <div class="textLine"></div>
         <p id="summary">
-          I am junior full-stack software developer from the Czech Republic
-          searching for an opportunity to utilize and deepen my knowledge.
+          I am a passionate software developer from the Czech Republic searching
+          for an opportunity to utilize and deepen my knowledge.
         </p>
       </div>
       <div class="textBox">

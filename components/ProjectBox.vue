@@ -32,12 +32,10 @@ const props = defineProps<Props>();
         class="projectImage"
       />
       <div class="projectLink left">
-        <NuxtLink :to="`/projects/${props.project.id}`" class="projectPage"
-          >Learn more</NuxtLink
-        >
+        <NuxtLink :to="`/projects/${props.project.id}`">Learn more</NuxtLink>
       </div>
       <div class="projectLink right">
-        <a :href="`${props.project.url}`" class="projectLink">Home page</a>
+        <a :href="`${props.project.url}`">Home page</a>
       </div>
     </div>
   </div>

@@ -36,12 +36,12 @@ const project = projects[pageId];
         <div class="textLine"></div>
         <p>{{ project.introduction }}</p>
       </div>
-      <img src="http://picsum.photos/300/200" alt="" />
+      <img :src="`${project.images.first}`" alt="" />
       <div class="textBox">
         <div class="textLine"></div>
         <p>{{ project.result }}</p>
       </div>
-      <img src="http://picsum.photos/300/200" alt="" />
+      <img :src="`${project.images.second}`" alt="" />
     </div>
   </main>
 </template>

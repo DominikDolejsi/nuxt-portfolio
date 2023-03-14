@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 const toggled = ref<boolean>(false);
+const isLargeScreen = useMediaQuery('(min-width: 1024px)');
 </script>
 
 <template>
@@ -8,6 +9,7 @@ const toggled = ref<boolean>(false);
       <img src="http://picsum.photos/32/32" alt="My logo" />
     </NuxtLink>
     <button
+      v-if="!isLargeScreen"
       type="button"
       class="burgerButton"
       :class="toggled ? 'toggled' : ''"
@@ -17,7 +19,7 @@ const toggled = ref<boolean>(false);
       <div class="bar2"></div>
       <div class="bar3"></div>
     </button>
-    <Transition name="scrollIn">
+    <Transition v-if="!isLargeScreen" name="scrollIn">
       <nav v-if="toggled">
         <ul class="list">
           <li>
@@ -47,5 +49,18 @@ const toggled = ref<boolean>(false);
         </ul>
       </nav>
     </Transition>
+    <nav v-if="isLargeScreen">
+      <ul class="list">
+        <li>
+          <NuxtLink to="/" class="navLink">About</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/experience" class="navLink">Experience</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/projects" class="navLink">Projects</NuxtLink>
+        </li>
+      </ul>
+    </nav>
   </header>
 </template>
