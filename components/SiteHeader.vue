@@ -4,7 +4,7 @@ const isLargeScreen = useMediaQuery('(min-width: 1024px)');
 </script>
 
 <template>
-  <header class="headerContainer" :class="toggled ? 'headerActive' : ''">
+  <header :class="toggled ? 'headerActive' : ''">
     <NuxtLink to="/" class="logo">
       <svg
         width="20.322"
@@ -66,7 +66,7 @@ const isLargeScreen = useMediaQuery('(min-width: 1024px)');
     </button>
     <Transition v-if="!isLargeScreen" name="scrollIn">
       <nav v-if="toggled">
-        <ul class="list">
+        <ul>
           <li>
             <NuxtLink
               to="/"
@@ -95,7 +95,7 @@ const isLargeScreen = useMediaQuery('(min-width: 1024px)');
       </nav>
     </Transition>
     <nav v-if="isLargeScreen">
-      <ul class="list">
+      <ul>
         <li>
           <NuxtLink to="/" class="navLink">About</NuxtLink>
         </li>

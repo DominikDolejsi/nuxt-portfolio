@@ -95,7 +95,7 @@ const wordShowcase = (event: Event) => {
 
 <template>
   <section>
-    <h2 class="sectionHeading">Introduction</h2>
+    <h2>Introduction</h2>
     <div class="introContainer">
       <div class="welcomeMessage">
         <p id="welcome">Hi, I am Dominik</p>
@@ -103,7 +103,7 @@ const wordShowcase = (event: Event) => {
       </div>
       <div class="textBox">
         <div class="textLine"></div>
-        <p id="summary">
+        <p>
           I am a passionate software developer from the Czech Republic searching
           for an opportunity to utilize and deepen my knowledge.
         </p>
@@ -111,7 +111,6 @@ const wordShowcase = (event: Event) => {
       <div class="textBox">
         <div class="textLine"></div>
         <p
-          id="background"
           @click="(event) => wordShowcase(event)"
           @keyup.enter="(event) => wordShowcase(event)"
         >
@@ -121,8 +120,7 @@ const wordShowcase = (event: Event) => {
             class="changingWord"
             data-words="PALEONTOLOGY_FOSSILS _DINOSAURS _TRILOBITES "
             >PALEONTOLOGY</span
-          >
-          , and in my free time, I still try to keep up to date with current
+          >, and in my free time, I still try to keep up to date with current
           scientific knowledge. This passion of mine often gets combined with my
           love for
           <span

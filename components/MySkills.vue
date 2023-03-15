@@ -2,7 +2,7 @@
 
 <template>
   <section>
-    <h2 class="sectionHeading">My Skills</h2>
+    <h2>My Skills</h2>
     <div class="skillsContainer">
       <SkillsBox title="Languages">
         <IconsJavaScript />

@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   css: ['~/assets/main.scss'],
   app: {
     head: {
-      title: 'This is title of my website',
+      title: 'Dominik Dolejší | softawre developer',
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         {

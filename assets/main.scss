@@ -280,10 +280,9 @@ main {
   .changingWord {
     display: inline-block;
     font-family: var(--ff-mono);
-    font-size: var(--fs-big);
-    font-weight: var(--fw-bold);
     color: var(--clr-secondary);
     cursor: pointer;
+    text-transform: lowercase;
   }
 
   .deactivated {
@@ -576,9 +575,10 @@ footer {
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
-    padding: .5rem;
+    padding: .5rem 1rem .5rem;
     border-radius: .5rem;
     gap: .25rem;
+
 
     .footerBox {
       display: grid;
@@ -773,15 +773,11 @@ footer {
         grid-column: 1 / 2;
       }
 
-      .footerBox:nth-child(2) {
-        grid-row: 2 / 3;
+      address:nth-child(2) {
+        grid-row: 2 / 4;
         grid-column: 1 / 2;
       }
       .footerBox:nth-child(3) {
-        grid-row: 3 / 4;
-        grid-column: 1 / 2;
-      }
-      .footerBox:nth-child(4) {
         grid-row: 2 / 4;
         grid-column: 2 / 3;
       }

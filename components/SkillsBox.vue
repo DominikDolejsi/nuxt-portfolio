@@ -4,7 +4,7 @@ const props = defineProps<{ title: string }>();
 
 <template>
   <div class="skillBox">
-    <h3 class="skillBoxHeading">{{ props.title }}</h3>
+    <h3>{{ props.title }}</h3>
     <div class="iconContainer">
       <slot>No skills</slot>
     </div>

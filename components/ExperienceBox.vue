@@ -15,11 +15,7 @@ const props = defineProps<Props>();
 </script>
 
 <template>
-  <div
-    v-for="experience in props.experiences"
-    :key="experience.id"
-    class="experienceBox"
-  >
+  <div v-for="experience in props.experiences" :key="experience.id">
     <div class="experienceHeader">
       <p class="date">{{ experience.date }}</p>
       <p class="type">{{ experience.type }}</p>
