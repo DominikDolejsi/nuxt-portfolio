@@ -100,6 +100,15 @@ select {
 
 // Macro Styling
 
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+}
 
 .container {
   position: relative;
@@ -252,17 +261,32 @@ main {
     margin-bottom: 1rem;
   }
 
-  #welcome {
-    font-size: var(--fs-large);
-    font-weight: var(--fw-bold);
-    text-align: center;
-    margin-top: 1rem;
+  .welcomeMessage {
+    margin: 3rem 0 3rem;
+    animation: load 2s  ease forwards;
+    opacity: 0;
+
+    #welcome {
+      font-size: var(--fs-large);
+      font-weight: var(--fw-bold);
+      text-align: center;
+      margin-top: 1rem;
+    }
+  
+    #subtitle {
+      font-weight: var(--fw-medium);
+      text-align: center;
+    }
+
+
+    @keyframes load {
+      to {
+        opacity: 1;
+      }
+      
+    }
   }
 
-  #subtitle {
-    font-weight: var(--fw-medium);
-    text-align: center;
-  }
 
   .textBox {
     display: grid;
@@ -602,7 +626,7 @@ footer {
       grid-template-columns: 1fr 1fr;
       place-items: center;
 
-      .textBox:nth-child(3) {
+      .textBox:nth-child(2) {
         grid-column: span 2;
       }
     }
@@ -721,13 +745,13 @@ footer {
     width: clamp(64rem, 80%, 80rem);
     justify-self: center;
 
+    .welcomeMessage {
+      grid-column: span 2;
+    }
+
     .introContainer {
 
-      .welcomeMessage {
-        grid-column: span 2;
-      }
-
-      .textBox:nth-child(2) {
+      .textBox:nth-child(1) {
         grid-column: span 2;
 
         .textLine {

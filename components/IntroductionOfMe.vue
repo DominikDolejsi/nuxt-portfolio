@@ -95,12 +95,8 @@ const wordShowcase = (event: Event) => {
 
 <template>
   <section>
-    <h2>Introduction</h2>
+    <h2 class="visually-hidden">Introduction</h2>
     <div class="introContainer">
-      <div class="welcomeMessage">
-        <p id="welcome">Hi, I am Dominik</p>
-        <p id="subtitle">Full stack software developer</p>
-      </div>
       <div class="textBox">
         <div class="textLine"></div>
         <p>
