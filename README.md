@@ -1,42 +1,26 @@
-# Nuxt 3 Minimal Starter
+# Portfolio Website
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Personal portfolio website built with **Nuxt 3**.
+
+This was my first full web application built after completing a software development bootcamp. The goal was to apply fundamentals of modern frontend development in a real project and understand how a production-ready Nuxt application is structured.
+
+The project is intentionally simple and focused on learning, clean structure, and core Nuxt concepts. A redesigned version is planned in the future with more advanced architecture and features.
+
+---
+
+## Tech Stack
+
+- Nuxt 3
+- Vue 3
+- TypeScript
+- SCSS
+- ESLint + Prettier
+- VueUse
+
+---
 
 ## Setup
 
-Make sure to install the dependencies:
-
+### Install dependencies
 ```bash
-# yarn
-yarn install
-
-# npm
 npm install
-
-# pnpm
-pnpm install
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
