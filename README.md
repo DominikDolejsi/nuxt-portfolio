@@ -2,6 +2,8 @@
 
 Personal portfolio website built with **Nuxt 3**.
 
+you can find it [HERE](https://nuxt-portfolio-one.vercel.app/)
+
 This was my first full web application built after completing a software development bootcamp. The goal was to apply fundamentals of modern frontend development in a real project and understand how a production-ready Nuxt application is structured.
 
 The project is intentionally simple and focused on learning, clean structure, and core Nuxt concepts. A redesigned version is planned in the future with more advanced architecture and features.
