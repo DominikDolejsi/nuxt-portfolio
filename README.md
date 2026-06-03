@@ -24,3 +24,8 @@ The project is intentionally simple and focused on learning, clean structure, an
 ### Install dependencies
 ```bash
 npm install
+```
+### Run development server
+```bash
+npm run dev
+```
